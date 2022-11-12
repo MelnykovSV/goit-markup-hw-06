@@ -83,7 +83,7 @@
               <input
                 type="text"
                 class="modal__input"
-                name=""
+                name="name"
                 id="modal__name-input"
               />
               <svg class="modal__icon" width="18" height="18">
@@ -95,7 +95,7 @@
               <input
                 type="tel"
                 class="modal__input"
-                name=""
+                name="telephone"
                 id="modal__tel-input"
               />
               <svg class="modal__icon" width="18" height="18">
@@ -107,7 +107,7 @@
               <input
                 type="email"
                 class="modal__input"
-                name=""
+                name="email"
                 id="modal__mail-input"
               />
               <svg class="modal__icon" width="18" height="18">
@@ -129,7 +129,7 @@
             <input
               type="checkbox"
               class="modal__checkbox"
-              name=""
+              name="license-checkbox"
               id="modal__checkbox"
             />
 
@@ -137,8 +137,16 @@
               for="modal__checkbox"
               class="modal__checkbox-label"
               id="modal__checkbox-label"
-              ><span>Погоджуюся з розсилкою та приймаю</span>
-              <a href="" class="modal__license">Умови договору</a>
+            >
+              <div class="custom-checkbox">
+                <svg class="custom-checkbox__icon" width="16" height="15">
+                  <use href="images/icons.svg#icon-check"></use>
+                </svg>
+              </div>
+              <div class="modal__checkbox-text">
+                <span>Погоджуюся з розсилкою та приймаю</span>
+                <a href="" class="modal__license"> Умови договору.</a>
+              </div>
             </label>
 
             <button type="submit" class="modal__submit">Відправити</button>
@@ -220,7 +228,7 @@
                 alt="Людина пише код "
                 width="370"
               />
-              <p>Десктопні додатки</p>
+              <p class="services__description">Десктопні додатки</p>
             </li>
             <li class="services__item">
               <img
@@ -228,7 +236,7 @@
                 alt="Людина розробляє дизайн мобільного застосунку"
                 width="370"
               />
-              <p>Мобільні додатки</p>
+              <p class="services__description">Мобільні додатки</p>
             </li>
             <li class="services__item">
               <img
@@ -236,7 +244,7 @@
                 alt="Людина користується панеллю вибору кольору на планшеті"
                 width="370"
               />
-              <p>Дизайнерські рішення</p>
+              <p class="services__description">Дизайнерські рішення</p>
             </li>
           </ul>
         </div>
@@ -679,7 +687,7 @@
               class="subscribe-form__email-input"
               id="subscribe-form__email-input"
               placeholder="E-mail"
-              name=""
+              name="subscription-email"
               id=""
             />
             <button type="submit" class="subscribe-form__button">

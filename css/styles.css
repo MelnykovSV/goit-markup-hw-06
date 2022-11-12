@@ -125,6 +125,9 @@ img {
 .menu__link--current {
   color: var(--blue);
 }
+.menu__link--current::after {
+  transform: scaleX(1);
+}
 /* .menu__link:hover,
 .menu__link:focus {
   color: var(--blue);
@@ -306,6 +309,12 @@ img {
 }
 .modal__close-icon {
   fill: var(--black);
+  transition: fill var(--time) var(--cubic);
+}
+
+.modal__close-button:focus .modal__close-icon,
+.modal__close-button:hover .modal__close-icon {
+  fill: var(--blue);
 }
 
 .modal__title {
@@ -327,6 +336,7 @@ img {
   left: 12px;
   transform: translateY(-50%);
   pointer-events: none;
+  transition: fill var(--time) var(--cubic);
 }
 .modal__label {
   display: block;
@@ -336,18 +346,16 @@ img {
   letter-spacing: 0.01em;
   margin-bottom: 4px;
 }
-.modal__checkbox-label {
-  font-size: 14px;
-  line-height: calc(24 / 14);
-  letter-spacing: 0.03em;
-}
+
 .modal__input {
-  height: 40px;
+  padding-top: 11px;
+  padding-bottom: 11px;
   width: 100%;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 42px;
   padding-right: 20px;
+  transition: border-color var(--time) var(--cubic);
 }
 
 .modal__input:hover,
@@ -370,6 +378,7 @@ img {
   border-radius: 4px;
   resize: none;
   padding: 12px 16px;
+  transition: border-color var(--time) var(--cubic);
 }
 .modal__comment-input:hover,
 .modal__comment-input:focus {
@@ -384,9 +393,6 @@ img {
   letter-spacing: 0.01em;
 
   color: rgba(117, 117, 117, 0.5);
-}
-.modal__license {
-  display: inline;
 }
 
 .modal__submit {
@@ -403,6 +409,7 @@ img {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color var(--time) var(--cubic);
 }
 .modal__submit:hover,
 .modal__submit:focus {
@@ -410,24 +417,47 @@ img {
 }
 .modal__checkbox {
   appearance: none;
-}
-.modal__checkbox:not(:checked) + .modal__checkbox-label::before {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 15px;
-  background-image: url("/images/checkbox-unchecked.svg");
-  line-height: 24px;
+  display: block;
 }
 
-.modal__checkbox:checked + .modal__checkbox-label::before {
-  content: "";
-  display: inline-block;
+.modal__checkbox:not(:checked) + .modal__checkbox-label .custom-checkbox {
+  border: solid 2px var(--dark);
+  background-color: var(--white);
+}
+.modal__checkbox:not(:checked) + .modal__checkbox-label .custom-checkbox__icon {
+  opacity: 0;
+}
+.modal__checkbox:checked + .modal__checkbox-label .custom-checkbox {
+  background-color: var(--blue);
+}
+.modal__checkbox:checked + .modal__checkbox-label .custom-checkbox__icon {
+  opacity: 1;
+}
+
+.modal__checkbox-label {
+  display: flex;
+  line-height: calc(24 / 14);
+  letter-spacing: 0.03em;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-checkbox {
   width: 16px;
   height: 15px;
-  background-image: url("/images/checkbox-checked.svg");
-  line-height: 24px;
+  border-radius: 2px;
+  margin-right: 7px;
 }
+.custom-checkbox__icon {
+  display: block;
+  fill: var(--white);
+}
+.modal__license {
+  display: inline;
+  text-decoration: underline;
+  color: var(--blue);
+}
+
 /*------------------------- features ----------------------------*/
 
 .features__title {
@@ -505,7 +535,7 @@ img {
   display: block;
   position: relative;
 }
-.services__item > p {
+.services__description {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -764,11 +794,10 @@ img {
 }
 .subscribe-form__email-input {
   width: 358px;
-  height: 50px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-  padding: 15px 16px;
+  padding: 14px 16px;
   background-color: var(--bg);
   font-size: 16px;
   line-height: calc(20 / 16);
@@ -788,18 +817,21 @@ img {
 .subscribe-form__button {
   background-color: var(--blue);
   cursor: pointer;
-
+  padding: 10px 28px 10px 20px;
   width: 200px;
-  height: 50px;
-
   font-weight: 700;
   font-size: 16px;
   line-height: calc(30 / 16);
   letter-spacing: 0.06em;
   color: var(--white);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border: solid 4px var(--blue);
+  border: none;
   border-radius: 4px;
+  transition: background-color var(--time) var(--cubic);
+}
+.subscribe-form__button:hover,
+.subscribe-form__button:focus {
+  background-color: var(--dark-blue);
 }
 
 .subscribe-form__button-body {
@@ -905,6 +937,7 @@ img {
 
 .card__thumb {
   position: relative;
+  overflow: hidden;
 }
 .card__description {
   position: absolute;
@@ -922,12 +955,12 @@ img {
   color: #ffffff;
   transition: transform var(--time) var(--cubic);
   transform-origin: bottom;
-  transform: scaleY(0);
+  transform: translateY(100%);
 }
 
 .card:hover .card__description,
 .card:focus .card__description {
-  transform: scaleY(1);
+  transform: translateY(0);
 }
 
 .card__body {
