@@ -908,7 +908,7 @@ img {
   margin-bottom: -30px;
   margin-right: -30px;
 }
-.projects img {
+.projects .card__img {
   width: 100%;
 }
 .card {
