@@ -137,7 +137,7 @@ img {
 .menu__link:focus::after {
   transform: scaleX(1);
 }
-.menu a {
+.menu__link {
   display: block;
 }
 
@@ -165,7 +165,8 @@ img {
   color: var(--blue);
 } */
 
-.header__contacts svg {
+.mail__icon,
+.phone__icon {
   display: block;
   margin-right: 10px;
   fill: var(--default-gray);
@@ -470,7 +471,7 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
-.features__list > :not(:first-child) {
+.features__list > .features-item:not(:first-child) {
   margin-left: 30px;
 }
 
