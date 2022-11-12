@@ -61,7 +61,8 @@ img {
 .link {
   transition: color var(--time) var(--cubic);
 }
-.link:hover {
+.link:hover,
+.link:focus {
   color: var(--blue);
 }
 
